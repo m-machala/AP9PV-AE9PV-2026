@@ -14,12 +14,12 @@
     }}
 
 __global__ void getIndex(int* outputData) {
-    int index = blockIdx.x * blockDim.y + threadIdx.x;
+    int index = blockIdx.x * blockDim.x + threadIdx.x;
     outputData[index] = index;
 }
 
 __global__ void addToVector(int* inputData, int* outputData, int constant) {
-    int index = blockIdx.x * blockDim.y + threadIdx.x;
+    int index = blockIdx.x * blockDim.x + threadIdx.x;
     outputData[index] = inputData[index] + constant;
 }
 
